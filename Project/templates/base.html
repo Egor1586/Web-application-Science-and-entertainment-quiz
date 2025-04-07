@@ -1,0 +1,42 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+        <title>{% block title %} {% endblock %}</title>
+        {% block links %} {% endblock %}
+    </head>
+    <body>
+
+    <!-- HEADER -->
+   
+        <header>
+            <div class="container">
+                <div class="header-content">
+                
+                    <img alt="Qusty logo" class="header-content-logo" src="{{ url_for('static', filename='images/logo.png') }}">
+                
+                    <nav>
+                        <a class="checked" href="/">Home</a>
+                        <a href="/profile">Profile</a>
+                        <a href="/score">Score</a>
+                    </nav>
+            
+                    <div class="header-content_last">
+                        <a href="/signup">
+                            Sign up
+                        </a>
+                        <a href="/login">
+                            Log in
+                        </a>
+                    </div>
+
+                </div>   
+            </div>
+        </header>
+
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
