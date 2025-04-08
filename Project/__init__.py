@@ -1,2 +1,2 @@
 from .urls import *
-from .settings import project
+from .settings import project, db
