@@ -12,16 +12,10 @@ project = flask.Flask(
     static_folder="static",
     static_url_path="/Project/",
     template_folder="templates",
-    instance_path= os.path.abspath(os.path.join(__file__, '..'))
+    instance_path= os.path.abspath(os.path.join(__file__, '..', '..', 'instance'))
 )
 
-
-project.register_blueprint(blueprint = home_app)
-project.register_blueprint(blueprint= score_app)
-project.register_blueprint(blueprint= new_quiz_app)
-project.register_blueprint(blueprint= profile_app)
-project.register_blueprint(blueprint = login_app)
-project.register_blueprint(blueprint = sign_up_app)
+print(os.path.abspath(os.path.join(__file__, '..', 'instance')))
 
 
 project.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
