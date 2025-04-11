@@ -12,11 +12,10 @@
 
     <!-- HEADER -->
    
-        <header>
+        <header style="position: relative; top: 0">
             <div class="container">
                 <div class="header-content">
-                
-                    <img alt="Qusty logo" class="header-content-logo" src="{{ url_for('static', filename='images/logo.png') }}">
+                    <img src="{{ url_for('static', filename = 'images/logo.svg') }}" alt="logo" class="logo">
                 
                     <nav>
                         <a class="checked" href="/">Home</a>
@@ -25,16 +24,33 @@
                     </nav>
             
                     <div class="header-content_last">
-                        <a href="/sign_up">
-                            Sign up
-                        </a>
-                        <a href="/login">
-                            Log in
-                        </a>
+                        <a href="/sign_up">Sign up</a>
+                        <a href="/login">Log in</a>
                     </div>
-
                 </div>   
+            </div> 
+
+            
+        <!-- </header>
+            <div class="logo">
+                <img src="{{ url_for('static', filename = 'images/logo.svg') }}" alt="logo" class="logo">
             </div>
+
+            <nav>
+                <ul class="nav-links">
+                    <a class="checked" href="/">Home</a>
+                    <a href="/profile">Profile</a>
+                    <a href="/score">Score</a>
+                </ul> 
+            </nav> 
+
+            <div class="auth-btn">
+                <button class="sign-up"><a href="/sign_up">Sign up</a></button>
+                <button class="login"><a href="/login">Log in</a></button>
+            </div>
+
+        <header> -->
+
         </header>
 
         {% block content %}
