@@ -5,7 +5,8 @@
 {% endblock %}
 
 {% block links %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/sig_up.css') }}">
+    <link rel="stylesheet" href="{{ url_for('sign_up_app.static', filename= 'css/signup.css') }}">
+
 {% endblock %}
 
 <!-- добавление формы для регестрации -->
@@ -13,37 +14,51 @@
 {% block content %}
     <div class="wrapper">
         <span class="rotate-bg"></span>
-
         <div class="form-box reg">
             <h2 class="title">Sign Up</h2>
-            
-            <form action="" method="POST">
-                   
-                <div class="input-box">
-                    <input type="text" class="input-text">
-                    <label for="id_username">Username</label>
-                    <i class='bx bxs-user'></i>
-                </div>
-            
-                <div class="input-box">
-                    <input type="email" name="" id="" class="input-text">
-                    <label for="id_email">Email</label>
-                    <i class='bx bxs-envelope'></i>
-                </div>
-            
-                <div class="input-box">
-                    <input type="password" class="input-text">
-                    <label for="id_password">Password</label>
-                    <i class='bx bx-lock'></i>
-                </div>
-            
-                <button type="submit" class="btn-login">Sign Up</button>
-            </form>
+        <form action="" method="POST">
+            <div class="input-box">
+                <input type="text" name="name" required>
+                <label for="name">Username</label>
+                <i class='bx bxs-user'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="email" name="email" required>
+                <label for="email">Email</label>
+                <i class='bx bxs-envelope'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="password" required>
+                <label for="password">Password</label>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="password-confirmation" required>
+                <label for="passwrod-confirmation">Password Confirmation</label>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+<!-- 
+            <div class="input-box">
+                <button type="ratio" class="ratio"></button>
+                <i class='bx bxs-lock-alt'></i>
+            </div> -->
+
+            <button type="submit" class="btn">Sign Up</button>
+
+            <div class="linkTxt">
+                <p>Already have an account? <a href="/login/" class="login-link">Login</a></p>
+            </div>
+
+        </form>
         </div>
 
         <div class="info-text reg">
             <h2>Join our team now!</h2>
             <p>Please enter your details.</p>
         </div>
+        
     </div>
 {% endblock %}

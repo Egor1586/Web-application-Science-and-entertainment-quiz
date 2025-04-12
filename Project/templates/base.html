@@ -11,46 +11,21 @@
     <body>
 
     <!-- HEADER -->
-   
-        <header style="position: relative; top: 0">
-            <div class="container">
-                <div class="header-content">
-                    <img src="{{ url_for('static', filename = 'images/logo.svg') }}" alt="logo" class="logo">
-                
-                    <nav>
-                        <a class="checked" href="/">Home</a>
-                        <a href="/profile">Profile</a>
-                        <a href="/score">Score</a>
-                    </nav>
-            
-                    <div class="header-content_last">
-                        <a href="/sign_up">Sign up</a>
-                        <a href="/login">Log in</a>
-                    </div>
-                </div>   
-            </div> 
-
-            
-        <!-- </header>
+        <header class="navbar">
             <div class="logo">
                 <img src="{{ url_for('static', filename = 'images/logo.svg') }}" alt="logo" class="logo">
             </div>
 
-            <nav>
-                <ul class="nav-links">
-                    <a class="checked" href="/">Home</a>
-                    <a href="/profile">Profile</a>
-                    <a href="/score">Score</a>
-                </ul> 
-            </nav> 
-
-            <div class="auth-btn">
-                <button class="sign-up"><a href="/sign_up">Sign up</a></button>
-                <button class="login"><a href="/login">Log in</a></button>
+            <nav class="nav-links">
+                <a class="checked" href="/">HOME</a>
+                <a href="/profile">PROFILE</a>
+                <a href="/score">SCORE</a>
+            </nav>
+            
+            <div class="auth-buttons">
+                <a href="/sign_up">SIGN UP</a>
+                <a href="/login">LOGIN</a>
             </div>
-
-        <header> -->
-
         </header>
 
         {% block content %}

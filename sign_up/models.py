@@ -9,7 +9,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(50), nullable= True)
     password = db.Column(db.String(20), nullable= True)
     password_confirmation = db.Column(db.String(20), nullable= True)
-    is_teacher = db.Column(db.Boolean)
+    # is_teacher = db.Column(db.Boolean)
 
     def __repr__(self):
         return f'User: {self.name}'

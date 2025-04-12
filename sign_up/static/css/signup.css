@@ -1,43 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
 
 body{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    font-family: 'Roboto', sans-serif;
-    background-color: rgba(221, 230, 252, 0.9);
-    overflow-y: scroll;
+    flex-direction: column;
 }
-
-html {
-    scrollbar-width: none;
-}
-
-
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-
-} 
-
 
 
 .wrapper{
     position: relative;
     width: 750px;
-    height: 450px;
+    height: 480px;
     background: white;
     border: 2px solid black;
     border-radius: 10px;
     box-shadow:  0 0 15px black;
     overflow: hidden;
+    padding: 5px;
 }
 
 .wrapper .form-box{
     position: absolute;
-    top: 0;
+    /* padding: 10px; */
     width: 50%;
     height: 100%;
 
@@ -115,7 +105,7 @@ html {
 .input-box input:focus~label,
 .input-box input:valid~label{
     top: -5px;
-    color:  rgba(59, 73, 109, 1);
+    color: rgba(59, 73, 109, 1);
 }
 
 .input-box i{
@@ -200,9 +190,10 @@ form .linkTxt{
     left: 0;
     width: 800px;
     height: 570px;
-    background: rgba(59, 73, 109, 1);
-    transform: rotate(-10deg) skewY(-40deg);
+    background: rgba(113, 145, 107, 1);
+    transform: rotate(-10.5deg) skewY(-40deg);
     transform-origin: bottom left;
-    border-bottom:  3px solid rgb(65, 78, 112);
+    border-bottom:  3px solid rgba(113, 145, 107, 1);
     transition:  1.5s ease;
 }
+
