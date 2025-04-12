@@ -11,29 +11,21 @@
     <body>
 
     <!-- HEADER -->
-   
-        <header>
-            <div class="container">
-                <div class="header-content">
-                
-                    <img alt="Qusty logo" class="header-content-logo" src="{{ url_for('static', filename='images/logo.png') }}">
-                
-                    <nav>
-                        <a class="checked" href="/">Home</a>
-                        <a href="/profile">Profile</a>
-                        <a href="/score">Score</a>
-                    </nav>
-            
-                    <div class="header-content_last">
-                        <a href="/sign_up">
-                            Sign up
-                        </a>
-                        <a href="/login">
-                            Log in
-                        </a>
-                    </div>
+        <header class="navbar">
+            <div class="logo">
+                <!-- <img src="{{ url_for('static', filename = 'css/images/logo.png') }}" alt="logo" class="logo"> -->
+                <img alt="Qusty logo" class="logo" src="{{ url_for('static', filename='images/logo.svg') }}">
+            </div>
 
-                </div>   
+            <nav class="nav-links">
+                <a class="checked" href="/">HOME</a>
+                <a href="/profile">PROFILE</a>
+                <a href="/score">SCORE</a>
+            </nav>
+            
+            <div class="auth-buttons">
+                <a href="/sign_up">SIGN UP</a>
+                <a href="/login">LOGIN</a>
             </div>
         </header>
 
