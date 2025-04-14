@@ -27,6 +27,9 @@ def render_sign_up():
 
                 data = db.session.add(user)
                 db.session.commit()
+
+                flask.session['is_registrated'] = True
+
                 return flask.redirect('/../', code = 301)
 
             else:

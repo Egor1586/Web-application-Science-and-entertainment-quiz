@@ -22,14 +22,21 @@
                 <a href="/profile">PROFILE</a>
                 <a href="/score">SCORE</a>
             </nav>
-            
+        
+        {% if is_registrated %}
+            <h2>My account</h2>
+
+        {% else %}
             <div class="auth-buttons">
                 <a href="/sign_up">SIGN UP</a>
                 <a href="/login">LOGIN</a>
             </div>
+        {% endif %}
+            
         </header>
 
         {% block content %}
+
         {% endblock %}
     </body>
 </html>
