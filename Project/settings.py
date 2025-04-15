@@ -1,4 +1,4 @@
-import flask, flask_sqlalchemy, flask_migrate, os, flask_login
+import flask, flask_sqlalchemy, flask_migrate, os, flask_login, random
 
 import sign_up
 
@@ -10,7 +10,7 @@ project = flask.Flask(
     instance_path= os.path.abspath(os.path.join(__file__, '..', '..', 'instance'))
 )
 
-project.secret_key = "1234"
+project.secret_key = str(random.randint(10000, 99999))
 
 print(os.path.abspath(os.path.join(__file__, '..', 'instance')))
 
