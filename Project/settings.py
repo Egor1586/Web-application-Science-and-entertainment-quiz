@@ -1,12 +1,5 @@
 import flask, flask_sqlalchemy, flask_migrate, os, flask_login
 
-from home_app import home_app
-from score_app import score_app
-from new_quiz_app import new_quiz_app
-from profile_app import profile_app
-from login_app import login_app
-from sign_up import sign_up_app
-
 import sign_up
 
 project = flask.Flask(

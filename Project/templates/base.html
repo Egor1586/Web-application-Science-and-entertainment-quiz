@@ -25,6 +25,9 @@
         
         {% if is_registrated %}
             <h2>My account</h2>
+            <form action="/logout", method="POST">
+                <button class="logout">Log out</button>
+            </form>
 
         {% else %}
             <div class="auth-buttons">
