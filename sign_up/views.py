@@ -1,6 +1,8 @@
 import flask, os
 from .models import User
 from Project.settings import db
+from .confirmation import confirmation_email
+
 
 def render_sign_up():
     is_registrated = False 
@@ -10,22 +12,22 @@ def render_sign_up():
         try:
             password = flask.request.form['password'] 
             password_confirmation = flask.request.form['password-confirmation']
+            email = flask.request.form['email']
             
             if password == password_confirmation: 
                 print(f'одинаковые пароли')
                 if flask.request.form['is_teacher'] == 'True':
                     teacher = True
-
                     
                 user = User(
                     name = flask.request.form['name'],
-                    email = flask.request.form['email'],
+                    email = email,
                     password = password,
                     password_confirmation = password_confirmation,
                     is_teacher = teacher
                 )
 
-                data = db.session.add(user)
+                db.session.add(user)
                 db.session.commit()
 
                 flask.session['is_registrated'] = True
