@@ -13,14 +13,15 @@ project = flask.Flask(
     instance_path= os.path.abspath(os.path.join(__file__, '..', '..', 'instance'))
 )
 
+project.config.update(
+    MAIL_SERVER='smtp.gmail.com',
+    MAIL_PORT=587,
+    MAIL_USE_TLS=True,
+    MAIL_USE_SSL=False,
+    MAIL_USERNAME='egor115819@gmail.com',
+    MAIL_PASSWORD='zlvh btgp kbbj igyw',
+)
 mail = Mail(project)
-
-# project.config['MAIL_SERVER'] = 'smtp.gmail.com'
-# project.config['MAIL_PORT'] = 587
-# project.config['MAIL_USERNAME'] = "egor115819@gmail.com"
-# project.config['MAIL_PASSWORD'] = "splz zswl ghub mbll"
-# project.config['MAIL_USE_TLS'] = True
-# project.config['MAIL_USE_SSL'] = False
 
 project.secret_key = str(random.randint(10000, 99999))
 

@@ -1,13 +1,17 @@
 import flask, os
+import traceback
+
 from .models import User
-from Project.settings import db
+from Project.settings import db, project
 from .confirmation import confirmation_email
 
 
-def render_sign_up():
-    is_registrated = False 
+def render_sign_up(): 
     teacher = False
-    
+
+    # with project.app_context():
+    #     confirmation_email("egorgrockij1@gmail.com")
+
     if flask.request.method == 'POST':
         try:
             password = flask.request.form['password'] 
@@ -24,13 +28,17 @@ def render_sign_up():
                     email = email,
                     password = password,
                     password_confirmation = password_confirmation,
-                    is_teacher = teacher
+                    is_teacher = teacher,
+                    in_account = False
                 )
 
                 db.session.add(user)
                 db.session.commit()
 
                 flask.session['is_registrated'] = True
+                
+                with project.app_context():
+                    confirmation_email(email)
 
                 return flask.redirect('/../', code = 301)
 
@@ -40,6 +48,7 @@ def render_sign_up():
                 
         except Exception as e:
             print(e)
+            traceback.print_exc()
     
     
     

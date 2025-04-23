@@ -1,6 +1,6 @@
 import flask 
 
-password_recovery_app = flask.Blueprint(
+send_email_app = flask.Blueprint(
     name= 'password_recovery_app',
     import_name= __name__,
     static_folder= 'static',
