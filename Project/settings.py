@@ -1,5 +1,4 @@
-import flask, flask_sqlalchemy, flask_migrate, os, flask_login, random
-import sign_up, dotenv, os
+import flask, flask_sqlalchemy, flask_migrate, flask_login, random, dotenv, os, home_app, auth
 
 from flask_mail import Mail
 
@@ -41,5 +40,5 @@ login_manager.login_view = 'render_login_app'
 
 @login_manager.user_loader
 def load_user(id):
-    return f'Id= {sign_up.User.query.get(id)}'
+    return f'Id= {auth.User.query.get(id)}'
 

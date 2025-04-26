@@ -21,10 +21,11 @@
                 <a class="checked" href="/">HOME</a>
                 <a href="/profile">PROFILE</a>
                 <a href="/score">SCORE</a>
+                <!-- <a href="/new_quiz">NEW QUIZ</a> -->
             </nav>
         
         {% if is_registrated %}
-            <h2>My account</h2>
+            <h2 class="username">{{ username }}</h2>
             <form action="/logout", method="POST">
                 <button class="logout">Log out</button>
             </form>
