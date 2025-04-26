@@ -5,6 +5,7 @@ from Project.settings import project
 from .send_email import send_code
 
 list_code = []
+list_email = []
 
 def render_send_email():
 
@@ -14,6 +15,7 @@ def render_send_email():
         print(f'Это email который мы получаем: {email}')
         code = random.randint(100000, 999999)
         list_code.append(code)
+        list_email.append(email)
 
         with project.app_context():
             send_code(user_email= "egorgrockij1@gmail.com", code= code)
