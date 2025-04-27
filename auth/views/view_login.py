@@ -14,6 +14,7 @@ def render_login_app():
                     login_user(user)
 
                     flask.session['username'] = user.name
+                    flask.session['is_teacher'] = user.is_teacher
 
                     flask.session['is_registrated'] = True
 

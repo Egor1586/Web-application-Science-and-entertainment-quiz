@@ -1,7 +1,8 @@
 from .urls import *
-from .settings import project, db
+from .settings import project
 from .loadenv import load_env
-
+from .database import db
+from .login import *
 # 
 project.register_blueprint(blueprint = home_app)
 

@@ -31,6 +31,7 @@ def render_sign_up():
                 )
                 
                 flask.session['username'] = user.name
+                flask.session['is_teacher'] = user.is_teacher
 
                 Project.db.session.add(user)
                 Project.db.session.commit()

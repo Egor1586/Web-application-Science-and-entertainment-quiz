@@ -7,6 +7,8 @@ def render_logout():
         logout_user()
         
         flask.session['is_registrated'] = False
+        flask.session['is_teacher'] = False
+        flask.session['username'] = None
         
         return flask.redirect(location = '/')
     
