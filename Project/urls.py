@@ -1,4 +1,5 @@
 from home_app import *
+from home_app.views import *
 from auth.app import *
 from auth.views import *
 
