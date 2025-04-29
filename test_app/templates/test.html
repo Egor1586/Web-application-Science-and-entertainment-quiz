@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Test App
+{% endblock %}
+
+{% block links %}
+
+{% endblock %}
+
+{% block content %}
+    <h1>Test</h1>
+    
+    {% if topic %}
+        <p>{{ topic }}</p>
+    {% endif %}
+{% endblock %}

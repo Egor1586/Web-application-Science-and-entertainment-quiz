@@ -2,6 +2,7 @@ from home_app import *
 from home_app.views import *
 from auth.app import *
 from auth.views import *
+from test_app import *
 
 
 # 
@@ -22,3 +23,7 @@ sign_up_app.add_url_rule(rule= '/reset_password/', view_func= render_reset_app, 
 sign_up_app.add_url_rule(rule = '/login/', view_func = render_login_app, methods = ['GET', 'POST'])
 
 sign_up_app.add_url_rule(rule="/logout/", view_func= render_logout, methods= ['GET', 'POST'])
+
+
+# 
+test_app.add_url_rule(rule= '/test_app/', view_func= render_test_app, methods = ['GET', 'POST'])

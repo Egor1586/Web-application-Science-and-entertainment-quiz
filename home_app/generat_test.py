@@ -14,67 +14,10 @@ async def generate_test(topic: str, description:str, count_question: int, aswer_
         messages = [{
             "role": "user",
             "content": ''
-        }],
+        }]
     )
-
-    response= {
-        "topic": "Основи Python",
-        "description": "Тест на базові знання Python для початківців.",
-        "questions": [
-            {
-            "question": "Яка правильна команда для виводу тексту на екран у Python?",
-            "options": [
-                "echo('Hello World')",
-                "console.log('Hello World')",
-                "printf('Hello World')",
-                "print('Hello World')"
-            ],
-            "correct_answer": "print('Hello World')"
-            },
-            {
-            "question": "Який тип даних використовується для зберігання цілих чисел у Python?",
-            "options": [
-                "float",
-                "str",
-                "bool",
-                "int"
-            ],
-            "correct_answer": "int"
-            },
-            {
-            "question": "Як позначається початок коментаря в Python?",
-            "options": [
-                "//",
-                "<!-- -->",
-                "/* */",
-                "#"
-            ],
-            "correct_answer": "#"
-            },
-            {
-            "question": "Який з наведених варіантів створює список у Python?",
-            "options": [
-                "(1, 2, 3)",
-                "{1, 2, 3}",
-                "<1, 2, 3>",
-                "[1, 2, 3]"
-            ],
-            "correct_answer": "[1, 2, 3]"
-            },
-            {
-            "question": "Як можна отримати довжину списку у Python?",
-            "options": [
-                "length(list)",
-                "count(list)",
-                "size(list)",
-                "len(list)"
-            ],
-            "correct_answer": "len(list)"
-            }
-        ]
-        }
    
-    # return response.choices[0].message.content 
-    return response
+    return response.choices[0].message.content 
+
 
 

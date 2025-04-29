@@ -8,3 +8,6 @@ project.register_blueprint(blueprint = home_app)
 
 # 
 project.register_blueprint(blueprint = sign_up_app)
+
+# 
+project.register_blueprint(blueprint= test_app)
