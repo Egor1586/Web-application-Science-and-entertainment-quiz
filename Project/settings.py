@@ -4,6 +4,9 @@ from flask_mail import Mail
 
 dotenv.load_dotenv()
 
+GOOGLE_APP_KEY= os.getenv("GOOGLE_APP_KEY")
+
+
 project = flask.Flask(
     import_name = __name__,
     static_folder="static",
@@ -18,7 +21,7 @@ project.config.update(
     MAIL_USE_TLS=True,
     MAIL_USE_SSL=False,
     MAIL_USERNAME='egor115819@gmail.com',
-    MAIL_PASSWORD='zlvh btgp kbbj igyw',
+    MAIL_PASSWORD= GOOGLE_APP_KEY,
 )
 mail = Mail(project)
 
