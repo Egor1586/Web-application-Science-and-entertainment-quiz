@@ -11,21 +11,20 @@
     <body>
 
     <!-- HEADER -->
-        <header class="navbar">
-            <div class="logo">
-                <!-- <img src="{{ url_for('static', filename = 'css/images/logo.png') }}" alt="logo" class="logo"> -->
-                <img alt="Qusty logo" class="logo" src="{{ url_for('static', filename='images/logo.svg') }}">
-            </div>
+    <header class="navbar">
+        <div class="logo">
+            <img alt="Qusty logo" class="logo" src="{{ url_for('static', filename='images/logo.svg') }}">
+        </div>
 
-            <nav class="nav-links">
-                <a class="checked" href="/">HOME</a>
-                <a href="/profile">PROFILE</a>
-                <a href="/score">SCORE</a>
-                {% if is_teacher %}
-                    <a href="/quizzes">NEW QUIZ</a>
-                {% endif %}
-            </nav>
-        
+        <nav class="nav-links">
+            <a href="/" class="{% if request.path == '/' %}active{% endif %}">HOME</a>
+            <a href="/profile"class= "{% if request.path == '/profile/' %}active{% endif %}">PROFILE</a>
+            <a href="/score" class="{% if request.path == '/score/' %}active{% endif %}">SCORE</a>
+            {% if is_teacher %}
+                <a href="/quizzes" class="{% if request.path == '/quizzes/' %}active{% endif %}">QUIZ</a>
+            {% endif %}
+        </nav>
+    
         {% if is_registrated %}
             <h2 class="username">{{ username }}</h2>
             <form action="/logout", method="POST">
@@ -38,8 +37,8 @@
                 <a href="/login">LOGIN</a>
             </div>
         {% endif %}
-            
-        </header>
+        
+    </header>
 
         {% block content %}
 

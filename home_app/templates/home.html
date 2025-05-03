@@ -9,40 +9,132 @@
 {% endblock %}
 
 {% block content %}
-    <div class = "about_questy">
-
-        <div class= "text">
-            <h1>Start Test</h1>
-            <p class= "p_text">The Questy platform allows you to create interactive tests,
-                share them via a unique code, 
-                and take them in real time. You can customize the questions,
+    <div class = "about-questy">
+        <div class="description">
+            <h1 class="start-t">START TEST</h1>
+            <p class= "text-d">The Questy platform allows you to create interactive tests,
+                share them via a unique code, and take them in real time. You can customize the questions,
                 time limits, number of participants,
-                and answer format. Suitable for both training and fun quizzes in the company.</p>
-        </div>
-
-        <div class= "buttons">
-            <input placeholder="Enter code" class= "input_code">
-            <button class= "start_code">Start</button>
-        </div>
-
-        <div class="contacts">
-            <div class="div_lines">
-                <hr class="top_lines">
-                    <div class="social">
-                        <h2>Follow us</h2>
-                        <img src="" alt="">
-                        <img src="" alt="">
-                        <img src="" alt="">
-                    </div>
-
-                <hr class="lines">
-            <p>Create test</p>
-            <p>Contact us</p>
+                and answer format. Suitable for both training and fun quizzes in the company.
+            </p>
+            <div class= "enter-code">
+                <div class="search-input">
+                    <i class='bx bx-search'></i>
+                    <input placeholder="Enter code" class= "input_code">
+                    <div class="fake-input-border"></div>
+                </div>
+                <button class= "search-btn">START</button>
             </div>
-            
-            
         </div>
-        
+
+        <div class="schedule">
+            <img alt="schedule" src="{{ url_for('home_app.static', filename='images/schedule.svg') }}" class="schedule-img">
+        </div>
     </div>
+
+    <hr>
+    
+    <div class="aval-t">
+        <h1 class="av-t">Avaliable Tests</h1>
+    </div>
+
+    <div class="tests">
+        <a href="/test_app?test_id=1" class="test-card">
+            <div class="test-image">
+                <!-- <img src="{{ url_for('home_app.static', filename='images/1.jpg') }}" alt="test img" class="test-image1"> -->
+            </div>
+            <div class="test-content">
+                <span class="test-questions">10 Qs</span>
+                <h3 class="test-title">Test name</h3>
+                <p class="test-description">Basic description for test</p>
+                <div class="test-accuracy">100% accuracy</div>
+            </div>
+        </a>
+
+        <a href="/test_app?test_id=2" class="test-card">
+            <div class="test-image">
+                <!-- <img src="{{ url_for('home_app.static', filename='images/1.jpg') }}" alt="test img" class="test-image1"> -->
+            </div>
+            <div class="test-content">
+                <span class="test-questions">10 Qs</span>
+                <h3 class="test-title">Test name</h3>
+                <p class="test-description">Basic description for test</p>
+                <div class="test-accuracy">100% accuracy</div>
+            </div>
+        </a>
+
+        <a href="/test_app?test_id=3" class="test-card">
+            <div class="test-image">
+                <img src="{{ url_for('home_app.static', filename='images/1.jpg') }}" alt="test img" class="test-image1">
+            </div>
+            <div class="test-content">
+                <span class="test-questions">10 Qs</span>
+                <h3 class="test-title">Test name</h3>
+                <p class="test-description">Basic description for test</p>
+                <div class="test-accuracy">100% accuracy</div>
+            </div>
+        </a>
+
+        <a href="/test_app?test_id=4" class="test-card">
+            <div class="test-image">
+                <!-- <img src="{{ url_for('home_app.static', filename='images/1.jpg') }}" alt="test img" class="test-image"> -->
+            </div>
+            <div class="test-content">
+                <span class="test-questions">10 Qs</span>
+                <h3 class="test-title">Test name</h3>
+                <p class="test-description">Basic description for test</p>
+                <div class="test-accuracy">100% accuracy</div>
+            </div>
+        </a>
+
+        <a href="/test_app?test_id=5" class="test-card">
+            <div class="test-image">                
+                <img src="{{ url_for('home_app.static', filename='images/1.jpg') }}" alt="test img" class="test-image1">
+            </div>
+            <div class="test-content">
+                <span class="test-questions">10 Qs</span>
+                <h3 class="test-title">Test name</h3>
+                <p class="test-description">Basic description for test</p>
+                <div class="test-accuracy">100% accuracy</div>
+            </div>
+        </a>
+
+        <a href="/test_app?test_id=5" class="test-card">
+            <div class="test-image">                
+                <img src="{{ url_for('home_app.static', filename='images/1.jpg') }}" alt="test img" class="test-image1">
+            </div>
+            <div class="test-content">
+                <span class="test-questions">10 Qs</span>
+                <h3 class="test-title">Test name</h3>
+                <p class="test-description">Basic description for test</p>
+                <div class="test-accuracy">100% accuracy</div>
+            </div>
+        </a>
+    </div>
+
+    <hr>
+
+      
+    <footer style="position: relative; bottom: 0">
+        <div class="footer-content">
+            <div class="footer-text">© 2025 Questy. All rights reserved.</div>
+            <div class="social-media">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- <div class="tests">
+
+        <div>
+            <button>
+                <a href="/test_app?test_id=1">Python</a>
+            </button>
+        </div>
+
+    </div> -->
+    
 {% endblock %}
 

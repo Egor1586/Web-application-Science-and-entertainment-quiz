@@ -1,17 +1,26 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block title %}
-    Test App
+    New quiz
 {% endblock %}
 
 {% block links %}
-
+    <link rel="stylesheet" href="{{ url_for('test_app.static', filename= 'css/test.css') }}">
 {% endblock %}
 
 {% block content %}
-    <h1>Test</h1>
-    
-    {% if topic %}
-        <p>{{ topic }}</p>
-    {% endif %}
+    <div class="test">
+
+            <p>{{ topic }}</p>
+            <p>{{ description }}</p>
+            <p> Количество ответов: {{ question_count }}</p>
+            <p> Ответы на воспрос: {{ answer_on_question }}</p>
+
+            {% for question in questions %}
+                <p> Вопрос: {{ question }} <p>
+                <p>{{ answers [0] }}</p>
+                <input type="radio" name="" id="">
+            {% endfor %}
+            
+    </div>
 {% endblock %}

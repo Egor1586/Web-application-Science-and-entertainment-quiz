@@ -13,6 +13,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    scrollbar-width:  none;
 }
   
 body {
@@ -73,18 +75,32 @@ header{
 .nav-links a:hover {
     color: #000;
 }
-  
-.nav-links a:nth-child(1)::after {
+
+.nav-links a::before {
     content: "";
     position: absolute;
-    bottom: -4px;
     left: 0;
-    width: 100%;
+    bottom: 0;
     height: 2px;
+    width: 0;
     background-color: black;
-
+    transition: width 0.25s ease;
 }
-  
+
+.nav-links a:hover::before {
+    width: 100%;
+    right: 0;
+    left: auto;
+}
+
+/* .nav-links a.active {
+    color: red;
+} */
+
+/* .nav-links a.active::after {
+    width: 100%;
+}
+   */
 
 .auth-buttons {
     display: flex;
