@@ -1,5 +1,5 @@
 import flask
-from home_app.models import Test
+from test_app.models import Test
 def render_test_app():
     is_registrated = flask.session.get('is_registrated', False)
     username = flask.session.get('username')

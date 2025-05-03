@@ -9,7 +9,7 @@ from test_app import *
 home_app.add_url_rule(rule= "/", view_func= render_home)
 home_app.add_url_rule(rule= '/score/', view_func= render_score, methods= ['GET', 'POST'])
 home_app.add_url_rule(rule="/profile/", view_func= render_profile, methods= ['GET', 'POST'])
-home_app.add_url_rule(rule = '/new_quiz/', view_func = render_new_quiz, methods = ['GET', 'POST'])
+home_app.add_url_rule(rule = '/quizzes/', view_func = render_quizzes, methods = ['GET', 'POST'])
 
 
 # 
@@ -27,3 +27,4 @@ sign_up_app.add_url_rule(rule="/logout/", view_func= render_logout, methods= ['G
 
 # 
 test_app.add_url_rule(rule= '/test_app/', view_func= render_test_app, methods = ['GET', 'POST'])
+test_app.add_url_rule(rule= '/new_quiz/', view_func= render_new_quiz, methods = ['GET', 'POST'])

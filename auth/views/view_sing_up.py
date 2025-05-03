@@ -6,6 +6,7 @@ from ..confirmation import confirmation_email
 
 def render_sign_up(): 
     teacher = False
+    message= ''
 
     # with Project.project.app_context():
     #     confirmation_email("egorgrockij1@gmail.com")
@@ -41,7 +42,9 @@ def render_sign_up():
                 with Project.project.app_context():
                     confirmation_email(email)
 
-                return flask.redirect('/../', code = 301)
+                message = "Confirm your account by email"
+
+                # return flask.redirect('/../', code = 301)
 
             else:
                 print('Not same password')
@@ -52,4 +55,4 @@ def render_sign_up():
             traceback.print_exc()
     
 
-    return flask.render_template(template_name_or_list= 'sign_up.html')
+    return flask.render_template(template_name_or_list= 'sign_up.html', message= message)

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    PROFILE_APP
+{% endblock %}
+
+{% block links %}
+    <link rel = "stylesheet" href = "{{ url_for('home_app.static', filename='css/quiz.css') }}">
+{% endblock %}
+
+{% block content %}
+    <button>
+        <a href="/new_quiz">Create new quiz</a>
+    </button>
+    <h2>
+        Your list of quizzes
+    </h2>
+
+    <div class="tests">
+
+        <div>
+            <button>
+                <a href="/test_app?test_id=1">Python</a>
+            </button>
+        </div>
+
+    </div>
+{% endblock %}
