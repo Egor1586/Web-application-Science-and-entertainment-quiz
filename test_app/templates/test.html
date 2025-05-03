@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+    New quiz
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{{ url_for('test_app.static', filename= 'css/test.css') }}">
+{% endblock %}
+
+{% block content %}
+    <form action="" method="POST">
+        <div class="input_boxes">
+            <input type="text" class="topic" name="topic" placeholder="Enter topic" required>
+            <input type="text" class="description" name="description" placeholder="Enter description about test" required>
+            <input type="number" class="count_question" name="count_question" placeholder="Enter count question" maxlength="6">
+            <input type="number" class="answer_on_question" name="answer_on_question" placeholder="Enter count on 1 question" max="10">
+            <button type="submit">Send data</button>
+        </div>
+    </form>
+
+    {% if context  %}
+    
+    <div class="test">
+
+            <p>{{ context.description }}</p>
+            <p>Количество вопросов: {{ context.count_question }}</p>
+            <p>Вопрос: {{ context.answer_on_question.question }}</p>
+
+                {% for option in context.answer_on_question %}
+                    <p>{{ option }}</p>
+                {% endfor %}
+
+    </div>
+
+    {% endif %}
+{% endblock %}

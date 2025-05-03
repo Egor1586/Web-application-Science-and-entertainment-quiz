@@ -1,2 +1,2 @@
-from .app import home_app
-from .views import render_home
+from .app import *
+from .views import *
