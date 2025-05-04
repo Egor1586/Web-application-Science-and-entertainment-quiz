@@ -19,5 +19,3 @@ async def generate_test(topic: str, description:str, count_question: int, aswer_
    
     return response.choices[0].message.content 
 
-
-
