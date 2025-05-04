@@ -1,50 +1,43 @@
-import flask, traceback
+import flask, traceback, random
 import Project
 
 from ..models import User
-from ..confirmation import confirmation_email
+from flask_login import current_user
+from ..send_email import send_code
+
+user_data = {
+    "name": None,
+    'password': None,
+    'password_confirmation': None,
+    'email': None,
+    'is_teacher': None
+    }
+
+
+list_code_account = []
 
 def render_sign_up(): 
-    teacher = False
     message= ''
-
-    # with Project.project.app_context():
-    #     confirmation_email("egorgrockij1@gmail.com")
-
+   
     if flask.request.method == 'POST':
-        try:
-            password = flask.request.form['password'] 
-            password_confirmation = flask.request.form['password-confirmation']
-            email = flask.request.form['email']
-            
-            if password == password_confirmation: 
-                print(f'одинаковые пароли')
-                if flask.request.form['is_teacher'] == 'True':
-                    teacher = True
-                    
-                user = User(
-                    name = flask.request.form['name'],
-                    email = email,
-                    password = password,
-                    password_confirmation = password_confirmation,
-                    is_teacher = teacher,
-                    is_certified = False
-                )
-                
-                flask.session['username'] = user.name
-                flask.session['is_teacher'] = user.is_teacher
+        try:   
+            user_data["name"] = flask.request.form['name'] 
+            user_data["password"]= flask.request.form['password'] 
+            user_data["password_confirmation"]= flask.request.form['password-confirmation']
+            user_data["email"]= flask.request.form['email']
+            user_data['is_teacher'] = flask.request.form['is_teacher']
+            code= random.randint(100000, 999999)
+            list_code_account.append(code)
+            print(list_code_account)
 
-                Project.db.session.add(user)
-                Project.db.session.commit()
+            db_email = User.query.filter_by(email = user_data["email"]).first()
+            if user_data["password"] == user_data["password_confirmation"]: 
+                if db_email is None:
 
-                flask.session['is_registrated'] = True
-                
-                with Project.project.app_context():
-                    confirmation_email(email)
+                    with Project.project.app_context():
+                        send_code(user_email=user_data["email"], code= code)
 
-                message = "Confirm your account by email"
-
-                # return flask.redirect('/../', code = 301)
+                    return flask.redirect(location = '/confirmation_account')
 
             else:
                 print('Not same password')

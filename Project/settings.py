@@ -1,4 +1,4 @@
-import flask, random, dotenv, os
+import flask, dotenv, os, secrets
 
 from flask_mail import Mail
 
@@ -25,4 +25,4 @@ project.config.update(
 )
 mail = Mail(project)
 
-project.secret_key = str(random.randint(10000, 99999))
+project.secret_key = secrets.token_bytes()
