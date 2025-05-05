@@ -5,5 +5,5 @@ sign_up_app = flask.Blueprint(
     import_name= "auth",
     static_folder= 'static',
     template_folder= 'templates',
-    static_url_path= '/sign_up/'
+    static_url_path= '/auth/static/'
 )

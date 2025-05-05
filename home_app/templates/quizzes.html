@@ -16,13 +16,20 @@
         Your list of quizzes
     </h2>
 
-    <div class="tests">
 
-        <div>
+
+    {% for test in list_tests %} 
+        {% if test.author == username %}
+            <p>{{ test.topic }}</p>
             <button>
-                <a href="/test_app?test_id=1">Python</a>
+                <a href="/test_app?test_id={{ test.id }}">Edit</a>
             </button>
-        </div>
 
-    </div>
+            <button onclick="joinRoom()">
+                <a href="/room" class="btn">
+                    Start test {{ test_id }}
+                </a>
+            </button>
+        {% endif %}
+    {% endfor %}
 {% endblock %}

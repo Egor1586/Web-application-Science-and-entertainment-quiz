@@ -5,17 +5,12 @@ from flask_login import current_user
 
 
 def render_test_app():
-    is_registrated = flask.session.get('is_registrated', False)
-    username = flask.session.get('username')
-    
     questions = []
     answers = []
     correct_answers = []
     len_questions = 0 
 
     test_id = flask.request.args.get('test_id')
-
-    
 
     for test in Test.query.filter_by(id = test_id):
         topic = test.topic
@@ -32,7 +27,7 @@ def render_test_app():
     print(f'Это количество вопросов: {len_questions}')
 
     return flask.render_template(
-        template_name_or_list= 'profile.html', 
+        template_name_or_list= 'test.html', 
         is_authorization = current_user.is_authenticated,
         username = current_user.name if current_user.is_authenticated else "", 
         is_teacher= current_user.is_teacher if current_user.is_authenticated else "",

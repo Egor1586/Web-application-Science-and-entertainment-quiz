@@ -65,10 +65,6 @@ def render_new_quiz():
         ]
         }
     
-    
-    is_registrated = flask.session.get('is_registrated', False)
-    username = flask.session.get('username')
-    
     if flask.request.method == "POST":
         try:
             topic = flask.request.form['topic']
@@ -90,7 +86,8 @@ def render_new_quiz():
                 topic= topic,
                 description = description,
                 question_count = count_question,
-                answer_on_question = answer_on_question   
+                answer_on_question = answer_on_question,
+                author = current_user.name
             )
 
             db.session.add(test)
