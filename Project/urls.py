@@ -14,15 +14,15 @@ home_app.add_url_rule(rule = '/quizzes/', view_func = render_quizzes, methods = 
 
 # 
 sign_up_app.add_url_rule(rule="/sign_up/", view_func= render_sign_up, methods= ['GET', 'POST'])
-sign_up_app.add_url_rule(rule="/confirmation/", view_func= render_confirmation, methods= ['GET', 'POST'])
 
 sign_up_app.add_url_rule(rule="/send_email_app/", view_func= render_send_email, methods= ['GET', 'POST'])
 sign_up_app.add_url_rule(rule= '/new_password/', view_func= render_new_password, methods= ['POST', 'GET'])
 sign_up_app.add_url_rule(rule= '/reset_password/', view_func= render_reset_app, methods= ['POST', 'GET'])
+sign_up_app.add_url_rule(rule= '/confirmation_account/', view_func= render_confirm_account, methods= ['POST', 'GET'])
 
 sign_up_app.add_url_rule(rule = '/login/', view_func = render_login_app, methods = ['GET', 'POST'])
 
-sign_up_app.add_url_rule(rule="/logout/", view_func= render_logout, methods= ['GET', 'POST'])
+sign_up_app.add_url_rule(rule="/logout/", view_func= loguot, methods = ['GET', 'POST'])
 
 
 # 

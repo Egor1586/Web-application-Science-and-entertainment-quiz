@@ -1,6 +1,7 @@
 import flask
 import json
 
+from flask_login import current_user
 from Project.database import db
 from ..models import Test, Quiz
 from ..generat_test import generate_test
@@ -108,7 +109,11 @@ def render_new_quiz():
             
             return flask.redirect(location = '/../')
         
-        except :
+        except:
             pass
 
-    return flask.render_template(template_name_or_list = 'new_quiz.html', is_registrated=is_registrated, username=username, is_teacher= flask.session.get("is_teacher"))
+    return flask.render_template(template_name_or_list = 'new_quiz.html',
+        is_authorization = current_user.is_authenticated,
+        username = current_user.name if current_user.is_authenticated else "", 
+        is_teacher= current_user.is_teacher if current_user.is_authenticated else ""
+        )
