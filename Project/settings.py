@@ -1,5 +1,6 @@
 import flask, dotenv, os, secrets
 
+from flask_socketio import SocketIO
 from flask_mail import Mail
 
 dotenv.load_dotenv()
@@ -23,6 +24,8 @@ project.config.update(
     MAIL_USERNAME='egor115819@gmail.com',
     MAIL_PASSWORD= GOOGLE_APP_KEY,
 )
-mail = Mail(project)
 
 project.secret_key = secrets.token_bytes()
+
+mail = Mail(project)
+socketio = SocketIO(project)

@@ -12,20 +12,10 @@
     <h1>Create an awesome quiz in minutes using AI</h1>
     <h3>Questy is the easiest way to make quizzes FREE</h3>
 
-    <!-- <form action="" method="POST">
-        <div class="creation-form">
-            <input type="text" class="topic" name="topic" placeholder="Enter topic" required>
-            <input type="text" class="description" name="description" placeholder="Enter description about test" required>
-            <input type="number" class="count_question" name="count_question" placeholder="Enter count question" maxlength="6">
-            <input type="number" class="answer_on_question" name="answer_on_question" placeholder="Enter count on 1 question" max="10">
-            <button type="submit">Send data</button>
-        </div>
-    </form> -->
-
     <section class="create-test-page">
         <h2 class="page-title">Create new quiz</h2>
 
-        <form class="test-form">
+        <form class="test-form" method="POST">
             <div class="form-group">
                 <label for="test-title">Topic</label>
                 <input type="text" id="test-title" name="topic" placeholder="Enter test topic" required>
@@ -42,7 +32,7 @@
                     <input type="number" id="question-count" name="count_question" min="1" placeholder="Standart - 10" required>
               </div>
               <div class="form-group">
-                    <label for="correct-answers">Amount of correct answers</label>
+                    <label for="correct-answers">Amount of answers</label>
                     <input type="number" id="correct-answers" name="answer_on_question" min="1" placeholder="Standart - 1">
               </div>
             </div>

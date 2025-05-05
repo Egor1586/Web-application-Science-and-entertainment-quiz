@@ -1,5 +1,5 @@
 from .urls import *
-from .settings import project
+from .settings import project, socketio
 from .loadenv import load_env
 from .database import db
 from .login import *

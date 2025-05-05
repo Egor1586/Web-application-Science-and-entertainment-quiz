@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+    PROFILE_APP
+{% endblock %}
+
+{% block links %}
+    <link rel = "stylesheet" href = "{{ url_for('test_app.static', filename='css/room.css') }}">
+    <script src="//cdn.socket.io/4.0.0/socket.io.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <h1>ROOM test 1</h1>
+
+    <ul id="messages"></ul>
+
+    <script>
+        const socket = io();
+
+        const username = "{{ username }}";
+        const room = "{{ CODE }}";
+
+        function joinRoom() {
+            socket.emit('join', {room: room, username: username});
+        }
+
+        socket.on('user_joined', function(data) {
+            const li = document.createElement("li");
+            li.innerText = data.msg;
+            document.getElementById('messages').appendChild(li);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            joinRoom();
+        });
+    </script>
+{% endblock %}

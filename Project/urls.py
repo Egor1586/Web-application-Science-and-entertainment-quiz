@@ -28,3 +28,4 @@ sign_up_app.add_url_rule(rule="/logout/", view_func= loguot, methods = ['GET', '
 # 
 test_app.add_url_rule(rule= '/test_app/', view_func= render_test_app, methods = ['GET', 'POST'])
 test_app.add_url_rule(rule= '/new_quiz/', view_func= render_new_quiz, methods = ['GET', 'POST'])
+test_app.add_url_rule(rule= '/room/', view_func= render_room, methods = ['GET', 'POST'])

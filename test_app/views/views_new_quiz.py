@@ -65,10 +65,6 @@ def render_new_quiz():
         ]
         }
     
-    
-    is_registrated = flask.session.get('is_registrated', False)
-    username = flask.session.get('username')
-    
     if flask.request.method == "POST":
         try:
             topic = flask.request.form['topic']
@@ -83,14 +79,14 @@ def render_new_quiz():
 
             # data= generate_test(topic, description, count_question, answer_on_question)
        
-            # 
             print(topic, description, count_question, answer_on_question )
             
             test = Test(
                 topic= topic,
                 description = description,
-                question_count = count_question,
-                answer_on_question = answer_on_question   
+                question_count = int(count_question),
+                answer_on_question = int(answer_on_question),
+                author = current_user.name
             )
 
             db.session.add(test)
@@ -107,7 +103,7 @@ def render_new_quiz():
             
             db.session.commit()
             
-            return flask.redirect(location = '/../')
+            return flask.redirect(location = '/../quizzes')
         
         except:
             pass

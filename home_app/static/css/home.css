@@ -132,7 +132,7 @@
     font-size: 18px;
 }
 
-.search-btn{
+.search-btn {
     background-color: rgba(97, 133, 90, 1);
     border-radius: 3px;
     padding: 8px 0;
@@ -140,6 +140,8 @@
     color: white;
     font-size: 15px; 
     border-color: transparent;
+
+    cursor: pointer; /* ← добавь это */
 }
 
 .schedule-img{
