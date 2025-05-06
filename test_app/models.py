@@ -1,4 +1,5 @@
 from Project.database import db
+from sqlalchemy.dialects.postgresql import ARRAY
 
 class Test(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -7,8 +8,9 @@ class Test(db.Model):
     
     question_count = db.Column(db.Integer)
     answer_on_question = db.Column(db.Integer)
+    code = db.Column(db.Integer)
     author = db.Column(db.String(100), nullable = True)
-    
+
     quizes = db.relationship('Quiz', backref='test', cascade= "all, delete-orphan")
     
 

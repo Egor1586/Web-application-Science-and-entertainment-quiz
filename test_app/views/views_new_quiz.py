@@ -1,5 +1,5 @@
 import flask
-import json
+import json, random
 
 from flask_login import current_user
 from Project.database import db
@@ -87,6 +87,7 @@ def render_new_quiz():
                 description = description,
                 question_count = count_question,
                 answer_on_question = answer_on_question,
+                code= random.randint(1000, 9999),
                 author = current_user.name
             )
 
@@ -103,8 +104,8 @@ def render_new_quiz():
                 db.session.add(quiz)
             
             db.session.commit()
-            
-            return flask.redirect(location = '/../')
+                 
+            return flask.redirect(location = '/../quizzes')
         
         except:
             pass

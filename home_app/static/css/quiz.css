@@ -1,0 +1,240 @@
+:root {
+    --green-main: #4CAF50;
+    --green-dark: #3e8641;
+    --green-light: #aad8af;
+    --bg-light: #f9fdf9;
+    --bg-aside: #f0f7f0;
+    --text-dark: #2f2f2f;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--green-light);
+    scroll-behavior: smooth;
+    overflow: hidden;
+    color: var(--text-dark);
+}
+
+main {
+    display: flex;
+    gap: 20px;
+
+
+    display: flex;
+    gap: 20px;
+
+    width: 100%;
+    /* padding: 20px; */
+    /* margin-top: 60px;  */
+    box-sizing: border-box;
+
+    
+}
+
+aside {
+    width: 290px;
+    height: 100vh;
+    background-color: var(--bg-aside);
+    padding: 15px 30px 30px 30px;
+    box-shadow: 0 0 15px var(--shadow);
+}
+
+.create-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    background-color: var(--green-main);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px var(--shadow);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.create-btn a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.start a{
+    text-decoration: none;
+    color: var(--text-dark)
+}
+
+.edit a{
+    text-decoration: none;
+    color: var(--text-dark)
+}
+
+.create-btn:hover {
+    background-color: var(--green-dark);
+    transform: translateY(-3px);
+}
+
+.library {
+    width: 220px;
+    /* padding: 20px; */
+}
+
+.library h2 {
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.quiz-card {
+    padding: 15px;
+    margin-bottom: 12px;
+    background-color: var(--bg-light);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--shadow);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.quiz-card:hover {
+    background-color: #e0f0e5;
+    transform: translateY(-4px);
+}
+
+.quiz-list {
+    flex: 1;
+    padding: 20px;
+}
+
+.quiz-list h2 {
+    margin-bottom: 15px;
+
+    font-size: 20px;
+}
+
+.quiz-item {
+    background-color: var(--bg-light);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--shadow);
+    transition: transform 0.3s ease;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quiz-item:hover {
+    transform: translateY(-1px);
+}
+
+.quiz-item p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--text-dark);
+}
+
+.actions {
+    margin-top: 8px;
+}
+
+.actions button {
+    padding: 7px 14px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #dfeee2;
+    color: var(--text-dark);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.actions button:hover {
+    background-color: var(--green-main);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.date{
+    font-size: 7px;
+}
+
+
+.quiz-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: var(--bg-light);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition: transform 0.3s ease;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.quiz-item:hover {
+    transform: translateY(-1px);
+}
+
+.quiz-item .info {
+    flex: 1;
+    min-width: 200px;
+}
+
+.quiz-item .info strong {
+    display: block;
+    font-size: 16px;
+    color:  var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.quiz-item .info p {
+    margin: 3px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.quiz-item .info .date {
+    font-size: 13px;
+    color: #777;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.actions button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e0eee2;
+    color: #2f2f2f;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.actions button:hover {
+    background-color: var(--green-main);
+    color: white;
+    transform: translateY(-1px);
+}
+
+header{
+    margin: 0;
+}
+
+.info-code{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+
+    gap: 10px;
+}

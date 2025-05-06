@@ -9,27 +9,58 @@
 {% endblock %}
 
 {% block content %}
-    <button>
-        <a href="/new_quiz">Create new quiz</a>
-    </button>
-    <h2>
-        Your list of quizzes
-    </h2>
+    <main>
+        <aside>
+            <button class="create-btn" ><a href="/new_quiz">+ Create new quiz</a></button>
+            <section class="library">
+                <h2>My library</h2>
+                <div class="quiz-card">Test&nbsp;&nbsp; {{ count_of_tests }}/20</div>
+                <!-- <div class="quiz-card">Test&nbsp;&nbsp; 5/20</div> -->
+                <!-- <div class="quiz-card">Test&nbsp;&nbsp; 8/20</div> -->
+    
+            </section>
+        </aside>
+        
 
+        
+        <section class="quiz-list">
+            <h2>List of quizzes</h2>
+            {% for test in list_tests %} 
+                {% if test.author == username %}
+                    <div class="quiz-item">
+                        <div class="info">
+                            <strong>{{ test.topic }}</strong>
+                            <p>{{ test.description }}</p>
+                            <p class="date"><strong>Date:</strong> 2025-05-04</p>
+                        </div>
 
+                        <div class="info">
+                            <strong>{{ test.question_count }}</strong>
+                            
+                            <p class="date"><strong>Author:</strong> {{ test.author }}</p>
+                        </div>
+                        <!-- <p><strong>Topic description</strong> – 5 questions</p> -->
+                        <div class="info-code">
+                            
+                            <div class="actions">
+                                <button class="edit">
+                                    <a href="/test_app{{test.code}}?test_id={{ test.id }}">Edit</a>                    
+                                </button>
+                                <!-- <button class="start">Start</button> -->
+                                <button onclick="joinRoom()" class="start">
+                                    <a href="/room" class="btn">
+                                        Start
+                                    </a>
+                                </button>
+                            </div>
+                            <p class="code-p"><strong>Code: </strong>{{test.code}}</p>
+                        </div>
+                        <!--  -->
+                    
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </section>
+    </main>
 
-    {% for test in list_tests %} 
-        {% if test.author == username %}
-            <p>{{ test.topic }}</p>
-            <button>
-                <a href="/test_app?test_id={{ test.id }}">Edit</a>
-            </button>
-
-            <button onclick="joinRoom()">
-                <a href="/room" class="btn">
-                    Start test {{ test_id }}
-                </a>
-            </button>
-        {% endif %}
-    {% endfor %}
 {% endblock %}
