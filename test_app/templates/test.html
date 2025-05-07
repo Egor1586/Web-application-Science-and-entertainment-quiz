@@ -17,13 +17,13 @@
             <p> Ответы на воспрос: {{ test.answer_on_question }}</p>
             
             {% for quiz in list_quiz %}
-                <p> Вопрос: {{ quiz.question }} <p>
+                <p><strong>Вопрос:</strong> {{ quiz.question }}</p>
                 
-                {% for answer in list_answers[0] %}
+                {% for answer in list_answers[loop.index0] %}
                     <p>{{ answer }}</p>
                 {% endfor %}
-                <p>{{ quiz.right_answer }}</p>
                 
+                <p>Правильный ответ: {{ quiz.right_answer }}</p>
             {% endfor %}
             
 

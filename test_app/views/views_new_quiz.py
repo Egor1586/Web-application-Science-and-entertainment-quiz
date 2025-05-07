@@ -97,12 +97,12 @@ def render_new_quiz():
             for quizzes in data["questions"]:
                 quiz = Quiz(
                     question = quizzes["question"],
-                    answers = json.dumps(quizzes["options"], ensure_ascii=False),
+                    answers = "%$№".join(quizzes["options"]),
                     right_answer = quizzes["correct_answer"],
                     quiz_id = test.id             
                 )
                 db.session.add(quiz)
-            
+                        
             db.session.commit()
                  
             return flask.redirect(location = '/../quizzes')
