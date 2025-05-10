@@ -11,6 +11,8 @@ class Test(db.Model):
     code = db.Column(db.Integer)
     author = db.Column(db.String(100), nullable = True)
 
+    date = db.Column(db.String(100), nullable = True)
+
     quizes = db.relationship('Quiz', backref='test', cascade= "all, delete-orphan")
     
 

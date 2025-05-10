@@ -31,7 +31,7 @@
                         <div class="info">
                             <strong>{{ test.topic }}</strong>
                             <p>{{ test.description }}</p>
-                            <p class="date"><strong>Date:</strong> 2025-05-04</p>
+                            <p class="date"><strong>Date:</strong> {{ test.date }}</p>
                         </div>
 
                         <div class="info">
@@ -44,7 +44,7 @@
                             
                             <div class="actions">
                                 <button class="edit">
-                                    <a href="/test_app{{test.code}}?test_id={{ test.id }}">Edit</a>                    
+                                    <a href="/test_app{{ test.code }}?test_id={{ test.id }}">Edit</a>                    
                                 </button>
                                 <!-- <button class="start">Start</button> -->
                                 <button onclick="joinRoom()" class="start">

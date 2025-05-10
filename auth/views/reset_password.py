@@ -26,8 +26,7 @@ def render_confirm_account():
                 email = user_data["email"],
                 password = user_data['password'],
                 password_confirmation = user_data['password_confirmation'],
-                is_teacher = bool(user_data['is_teacher']),
-                is_certified = True
+                is_teacher = bool(user_data['is_teacher'])
             )                   
             
             Project.db.session.add(user)

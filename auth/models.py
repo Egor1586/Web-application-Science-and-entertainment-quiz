@@ -10,7 +10,6 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(20), nullable= True)
     password_confirmation = db.Column(db.String(20), nullable= True)
     is_teacher = db.Column(db.Boolean)
-    is_certified = db.Column(db.Boolean)
 
     def __repr__(self):
         return f'User: {self.name}'
