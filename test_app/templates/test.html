@@ -9,24 +9,33 @@
 {% endblock %}
 
 {% block content %}
-    <div class="test">
+    <body>
 
-            <p>{{ test.topic }}</p>
-            <p>{{ test.description }}</p>
-            <p> Количество ответов: {{ test.question_count }}</p>
-            <p> Ответы на воспрос: {{ test.answer_on_question }}</p>
-            
-            {% for quiz in list_quiz %}
-                <p><strong>Вопрос:</strong> {{ quiz.question }}</p>
-                
-                {% for answer in list_answers[loop.index0] %}
-                    <p>{{ answer }}</p>
-                {% endfor %}
-                
-                <p>Правильный ответ: {{ quiz.right_answer }}</p>
-            {% endfor %}
-            
+        <div class="container">
+            <div class="test-header">
+                <div class="test-details">
+                    <div class="test-title">Test Topic: topic</div>
+                    <div class="test-description">Description: Dasic descriptin for test</div>
+                    <div class="meta-info">Number of answers per question: 4</div>
+                </div>
+                <button class="edit-btn">Edit</button>
+            </div>
 
-            <input type="radio" name="" id="">       
-    </div>
+            <div class="question-block">
+                <div class="question-header">
+                <div>1. Question: ....?</div>
+                <button class="edit-btn">Edit</button>
+                </div>
+                <div class="question-text">
+                    Choose the correct option from the ones below.
+                </div>
+                <div class="answer correct">✓ answer 1</div>
+                <div class="answer incorrect">✗ answer 2</div>
+                <div class="answer incorrect">✗ answer 3</div>
+                <div class="answer incorrect">✗ answer 4</div>
+            </div>
+
+        </div>
+
+    </body>
 {% endblock %}
