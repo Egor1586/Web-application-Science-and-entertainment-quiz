@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block title %}
-    PROFILE_APP
+    Quizzes
 {% endblock %}
 
 {% block links %}
-    <link rel = "stylesheet" href = "{{ url_for('home_app.static', filename='css/quiz.css') }}">
+    <link rel = "stylesheet" href = "{{ url_for('home_app.static', filename='css/quizzes.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -23,7 +23,7 @@
         
 
         
-        <section class="quiz-list">
+        <div class="quiz-list">
             <h2>List of quizzes</h2>
             {% for test in list_tests %} 
                 {% if test.author == username %}
@@ -60,7 +60,7 @@
                     </div>
                 {% endif %}
             {% endfor %}
-        </section>
+        </div>
     </main>
 
 {% endblock %}

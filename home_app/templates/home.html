@@ -38,77 +38,26 @@
         <h1 class="av-t">Avaliable Tests</h1>
     </div>
 
-    <div class="tests">
-        <a href="/test_app?test_id=1" class="test-card">
-            <div class="test-image">
-                <!-- <img src="{{ url_for('home_app.static', filename='images/1.jpg') }}" alt="test img" class="test-image1"> -->
+        {% if username %}
+        
+            <div class="tests">
+            {% for test in list_tests %}
+                
+                <a href="/test_app{{ test.code }}?test_id= {{ test.id }}" class="test-card">
+                    <div class="test-image">
+                        <!-- <img src="{{ url_for('home_app.static', filename='images/1.jpg') }}" alt="test img" class="test-image1"> -->
+                    </div>
+                    <div class="test-content">
+                        <span class="test-questions">{{ test.question_count }}</span>
+                        <h3 class="test-title">{{ test.topic }}</h3>
+                        <p class="test-description">{{ test.description }}</p>
+                        <div class="test-accuracy">100% accuracy</div>
+                    </div>
+                </a>
+                    
+            {% endfor %}
             </div>
-            <div class="test-content">
-                <span class="test-questions">10 Qs</span>
-                <h3 class="test-title">Test name</h3>
-                <p class="test-description">Basic description for test</p>
-                <div class="test-accuracy">100% accuracy</div>
-            </div>
-        </a>
-
-        <!-- <a href="/test_app?test_id=2" class="test-card">
-            <div class="test-image">
-            </div>
-            <div class="test-content">
-                <span class="test-questions">10 Qs</span>
-                <h3 class="test-title">Test name</h3>
-                <p class="test-description">Basic description for test</p>
-                <div class="test-accuracy">100% accuracy</div>
-            </div>
-        </a>
-
-        <a href="/test_app?test_id=3" class="test-card">
-            <div class="test-image">
-                <img src="{{ url_for('home_app.static', filename='images/1.jpg') }}" alt="test img" class="test-image1">
-            </div>
-            <div class="test-content">
-                <span class="test-questions">10 Qs</span>
-                <h3 class="test-title">Test name</h3>
-                <p class="test-description">Basic description for test</p>
-                <div class="test-accuracy">100% accuracy</div>
-            </div>
-        </a>
-
-        <a href="/test_app?test_id=4" class="test-card">
-            <div class="test-image">
-            </div>
-            <div class="test-content">
-                <span class="test-questions">10 Qs</span>
-                <h3 class="test-title">Test name</h3>
-                <p class="test-description">Basic description for test</p>
-                <div class="test-accuracy">100% accuracy</div>
-            </div>
-        </a>
-
-        <a href="/test_app?test_id=5" class="test-card">
-            <div class="test-image">                
-                <img src="{{ url_for('home_app.static', filename='images/1.jpg') }}" alt="test img" class="test-image1">
-            </div>
-            <div class="test-content">
-                <span class="test-questions">10 Qs</span>
-                <h3 class="test-title">Test name</h3>
-                <p class="test-description">Basic description for test</p>
-                <div class="test-accuracy">100% accuracy</div>
-            </div>
-        </a>
-
-        <a href="/test_app?test_id=5" class="test-card">
-            <div class="test-image">                
-                <img src="{{ url_for('home_app.static', filename='images/1.jpg') }}" alt="test img" class="test-image1">
-            </div>
-            <div class="test-content">
-                <span class="test-questions">10 Qs</span>
-                <h3 class="test-title">Test name</h3>
-                <p class="test-description">Basic description for test</p>
-                <div class="test-accuracy">100% accuracy</div>
-            </div>
-        </a> -->
-    </div>
+        {% endif %}
 
     <hr>
 
@@ -142,4 +91,3 @@
         }); 
     </script>
 {% endblock %}
-

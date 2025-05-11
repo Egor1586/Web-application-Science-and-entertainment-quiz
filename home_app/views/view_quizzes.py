@@ -10,7 +10,7 @@ def render_quizzes():
     
     count_of_tests = 0
     for test in list_tests:
-        if test.author == current_user.name:
+        if test.author == current_user.username:
             list_your_test.append(test)
 
     count_of_tests = int(len(list_tests))
@@ -18,7 +18,7 @@ def render_quizzes():
     return flask.render_template(
     template_name_or_list= 'quizzes.html', 
     is_authorization = current_user.is_authenticated,
-    username = current_user.name if current_user.is_authenticated else "", 
+    username = current_user.username if current_user.is_authenticated else "", 
     is_teacher= current_user.is_teacher if current_user.is_authenticated else "",
     list_tests = list_your_test,
     count_of_tests = count_of_tests

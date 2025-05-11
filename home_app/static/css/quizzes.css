@@ -21,15 +21,16 @@ main {
     display: flex;
     gap: 20px;
 
-
-    display: flex;
-    gap: 20px;
-
     width: 100%;
+    height: 100vh;
     /* padding: 20px; */
     /* margin-top: 60px;  */
     box-sizing: border-box;
 
+
+    overflow-y: scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
     
 }
 
@@ -102,7 +103,18 @@ aside {
 .quiz-list {
     flex: 1;
     padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    
+    overflow-y: scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
 }
+
+/* .quiz-list::-webkit-scrollbar{
+    display: none;
+} */
 
 .quiz-list h2 {
     margin-bottom: 15px;

@@ -94,7 +94,7 @@ def render_new_quiz():
                 question_count = count_question,
                 answer_on_question = answer_on_question,
                 code= code,
-                author = current_user.name,
+                author = current_user.username,
                 date= datetime.date.today()
             )
 
@@ -119,6 +119,6 @@ def render_new_quiz():
 
     return flask.render_template(template_name_or_list = 'new_quiz.html',
         is_authorization = current_user.is_authenticated,
-        username = current_user.name if current_user.is_authenticated else "", 
+        username = current_user.username if current_user.is_authenticated else "", 
         is_teacher= current_user.is_teacher if current_user.is_authenticated else ""
         )
