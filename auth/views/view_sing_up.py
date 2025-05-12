@@ -25,12 +25,17 @@ def render_sign_up():
             user_data["password"]= flask.request.form['password'] 
             user_data["password_confirmation"]= flask.request.form['password-confirmation']
             user_data["email"]= flask.request.form['email']
-            user_data['is_teacher'] = flask.request.form['is_teacher']
+            role = flask.request.form['is_teacher']
+            if role == "False":
+                user_data['is_teacher'] = False
+            else:
+                user_data['is_teacher'] = True
+       
             code= random.randint(100000, 999999)
             list_code_account.append(code)
-            print(list_code_account)
 
             db_email = User.query.filter_by(email = user_data["email"]).first()
+            
             if user_data["password"] == user_data["password_confirmation"]: 
                 if db_email is None:
 

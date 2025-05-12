@@ -74,13 +74,12 @@
         </div>
     </footer>
 
-    <script>
+    <!-- <script>
         const socket = io();
 
         const username = "{{ username }}"
 
         function joinRoom() {
-            
             const room = document.getElementById('room').value;
             window.location.href = '/room';
             socket.emit('join', {room: room, username: username});
@@ -91,6 +90,22 @@
             li.innerText = data.msg;
             document.getElementById('messages').appendChild(li);
         }); 
-    </script>
-{% endblock %}
+    </script> -->
 
+    <script>
+        let socket;
+        
+        function joinRoom() {
+
+            const room = document.getElementById('room').value;
+            socket = new WebSocket('ws://${location.host}/ws/${room}')
+
+            socket.on('user_joined', function(data) {
+            const li = document.createElement("li");
+            li.innerText = data.msg;
+            document.getElementById('messages').appendChild(li);
+            }); 
+        }   
+    </script>
+
+{% endblock %}

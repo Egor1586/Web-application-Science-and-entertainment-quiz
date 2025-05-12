@@ -1,5 +1,4 @@
-import flask
-import json, random
+import flask, random, datetime
 
 from flask_login import current_user
 from Project.database import db
@@ -82,13 +81,21 @@ def render_new_quiz():
             # 
             print(topic, description, count_question, answer_on_question )
             
+            while True: 
+                code= random.randint(1000, 9999)
+                db_code = Test.query.filter_by(code= code).first()
+                
+                if db_code is None:
+                    break
+
             test = Test(
                 topic= topic,
                 description = description,
                 question_count = count_question,
                 answer_on_question = answer_on_question,
-                code= random.randint(1000, 9999),
-                author = current_user.name
+                code= code,
+                author = current_user.username,
+                date= datetime.date.today()
             )
 
             db.session.add(test)
@@ -104,14 +111,14 @@ def render_new_quiz():
                 db.session.add(quiz)
                         
             db.session.commit()
-                 
+                
             return flask.redirect(location = '/../quizzes')
-        
+
         except:
             pass
 
     return flask.render_template(template_name_or_list = 'new_quiz.html',
         is_authorization = current_user.is_authenticated,
-        username = current_user.name if current_user.is_authenticated else "", 
+        username = current_user.username if current_user.is_authenticated else "", 
         is_teacher= current_user.is_teacher if current_user.is_authenticated else ""
         )

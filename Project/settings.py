@@ -2,6 +2,8 @@ import flask, dotenv, os, secrets
 
 from flask_mail import Mail
 from flask_socketio import SocketIO
+from flask_sock import Sock
+
 
 dotenv.load_dotenv()
 
@@ -13,8 +15,12 @@ project = flask.Flask(
     static_folder="static",
     static_url_path="/Project/",
     template_folder="templates",
-    instance_path= os.path.abspath(os.path.join(__file__, '..', '..', 'instance'))
+    instance_path= os.path.abspath(os.path.join(__file__, '..', 'instance'))
 )
+
+sock = Sock(app = project)
+
+# instance_path= os.path.abspath(os.path.join(__file__, '..', '..', 'instance'))
 
 project.config.update(
     MAIL_SERVER='smtp.gmail.com',

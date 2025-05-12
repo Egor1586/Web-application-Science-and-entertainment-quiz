@@ -12,7 +12,6 @@
     <h1>ROOM test 1</h1>
 
     <ul id="messages"></ul>
-
     <script>
         const socket = io();
 
@@ -22,15 +21,14 @@
         function joinRoom() {
             socket.emit('join', {room: room, username: username});
         }
-
         socket.on('user_joined', function(data) {
             const li = document.createElement("li");
             li.innerText = data.msg;
             document.getElementById('messages').appendChild(li);
         });
-
         document.addEventListener('DOMContentLoaded', () => {
             joinRoom();
         });
     </script>
+
 {% endblock %}

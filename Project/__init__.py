@@ -1,8 +1,8 @@
 from .urls import *
-from .settings import project,socketio
+from .settings import project,socketio, sock
 from .loadenv import load_env
 from .database import db
-from .login import *
+from .login_manager import *
 # 
 project.register_blueprint(blueprint = home_app)
 

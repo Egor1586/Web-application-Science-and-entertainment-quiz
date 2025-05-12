@@ -14,7 +14,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    scrollbar-width:  none;
+    /* scrollbar-width:  none; */
+
 }
   
 body {
@@ -25,7 +26,13 @@ body {
 
     font-family: 'Roboto', sans-serif;
     background-color: var(--lite_green);
+    scrollbar-width: none;
 }
+
+::-webkit-scrollbar{
+    display: none;
+}
+
 
 header{
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.229); 

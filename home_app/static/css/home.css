@@ -1,3 +1,9 @@
+
+body{
+    scrollbar-width:  none;
+
+}
+
 .about-questy{
     display: flex;
     flex-direction: row;
@@ -13,6 +19,7 @@
     
     padding: 25px;
     overflow: hidden;
+    
 }
 
 .description{
@@ -180,13 +187,17 @@ hr {
     padding: 25px;
 
     /* padding: 50px 0 50px 0; */
-    overflow-x: auto;
+    
+    overflow-x: scroll;
     scroll-behavior: smooth;
+    scrollbar-color: black;
+    scrollbar-width: thin;
+    
 }
-
 
 .tests::-webkit-scrollbar {
     height: 8px;
+    display: block !important;
 }
 
 .tests::-webkit-scrollbar-thumb {
