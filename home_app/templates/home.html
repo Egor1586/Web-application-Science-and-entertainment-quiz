@@ -23,7 +23,7 @@
                     <input placeholder="Enter code" class= "input_code" id="room">
                     <div class="fake-input-border"></div>
                 </div>
-                <button class= "search-btn" onclick="joinRoom()">START</button>
+                <button class= "search-btn" onclick="emitUser()">START</button>
             </div>
         </div>
 
@@ -74,20 +74,33 @@
     </footer>
 
     <script>
+
         const socket = io();
 
         const username = "{{ username }}"
+        const code = "{{ CODE }}"
 
-        function joinRoom() {
-            const room = document.getElementById('room').value;
-            window.location.href = '/room';
-            socket.emit('join', {room: room, username: username});
+        // Listen for messages from server
+        socket.on("message", function(data) {
+            let messages = document.getElementById("messages");
+            messages.innerHTML += `<p>${data}</p>`;
+            console.log(typeof data, data)
+        });
+
+        function emitUser(){
+            const room = document.getElementById('room').value
+            socket.emit("join", room);
+            window.location.href= `/room${ room }`;
         }
 
-        socket.on('user_joined', function(data) {
-            const li = document.createElement("li");
-            li.innerText = data.msg;
-            document.getElementById('messages').appendChild(li);
-        }); 
+        // Function to send messages
+        function sendMessage() {
+            let msgInput = document.getElementById("msg");
+            let message = msgInput.value;
+            socket.send(message);
+            msgInput.value = "";
+        }
+
     </script>
+    
 {% endblock %}

@@ -9,26 +9,36 @@
 {% endblock %}
 
 {% block content %}
-    <h1>ROOM test 1</h1>
+    <h1>ROOM test {{ CODE }}</h1>
 
-    <ul id="messages"></ul>
+    <input id="msg" type="text" placeholder="Enter your message">
+    <button onclick="sendMessage()">Send</button>
+    <div id="messages"></div>
+    
     <script>
+        
         const socket = io();
+        const username = "{{ username }}";  
+        const code = "{{ CODE }}"
+        
+        socket.emit("join", code);  // Notify server of new user
+        console.log(username)
 
-        const username = "{{ username }}";
-        const room = "{{ CODE }}";
+        // Listen for messages from server
+        socket.on("message", function(data) {
+            var messages = document.getElementById("messages");
+            messages.innerHTML += `<p>${data}</p>`;
+            console.log(typeof data, data)
+        });
 
-        function joinRoom() {
-            socket.emit('join', {room: room, username: username});
+        // Function to send messages
+        function sendMessage() {
+            var msgInput = document.getElementById("msg");
+            var message = msgInput.value;
+            socket.send(message);
+            msgInput.value = "";
         }
-        socket.on('user_joined', function(data) {
-            const li = document.createElement("li");
-            li.innerText = data.msg;
-            document.getElementById('messages').appendChild(li);
-        });
-        document.addEventListener('DOMContentLoaded', () => {
-            joinRoom();
-        });
-    </script>
 
+    </script>
+    
 {% endblock %}

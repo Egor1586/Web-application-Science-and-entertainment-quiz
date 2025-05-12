@@ -4,7 +4,7 @@ from ..models import Test, Quiz
 from flask_login import current_user
 
 def render_test_app(code):
-    
+
     list_quiz = []
     list_answers= []
 
@@ -25,4 +25,3 @@ def render_test_app(code):
         list_answers= list_answers
         )
 
-# def 
