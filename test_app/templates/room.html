@@ -9,13 +9,40 @@
 {% endblock %}
 
 {% block content %}
-    <h1>ROOM test {{ CODE }}</h1>
+    <!-- <h1>ROOM test {{ CODE }}</h1>
 
     <input id="msg" type="text" placeholder="Enter your message">
     <button onclick="sendMessage()">Send</button>
     <div id="messages"></div>
-    
-    <script>
+     -->
+
+    <div class="info-bar">
+        <div>Author: {{ username }}</div>
+        <div>Test code: <strong>{{ CODE }}</strong></div>
+    </div>
+
+    <div class="user-list">
+        <div class="user-block">
+            <div class="user-name">User 1</div>
+            <div class="user-actions">
+                <button class="btn-remove">Delete</button>
+                <button class="btn-block">Block</button>
+            </div>
+
+            </div>
+            <div class="user-block">
+                <div class="user-name">User 2</div>
+                <div class="user-actions">
+                    <button class="btn-remove">Delete</button>
+                    <button class="btn-block">Block</button>
+                </div>
+            </div>
+        </div>
+
+    <div class="status-message">Waiting for others...</div>  
+
+
+    <!-- <script>
         
         const socket = io();
         const username = "{{ username }}";  
@@ -39,6 +66,6 @@
             msgInput.value = "";
         }
 
-    </script>
+    </script> -->
     
 {% endblock %}
