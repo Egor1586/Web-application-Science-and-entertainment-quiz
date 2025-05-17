@@ -9,15 +9,24 @@
 {% endblock %}
 
 {% block content %}
-    <form action="">
+    <form action="" method="post">
         <h1>Edit</h1>
+        <p>{{ right_answer }}</p>
         
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
+            {% for answer in list_answers %}
+                {% set numb = list_answers[loop.index0] %}
+                {% for question in range(test.answer_on_question) %}
+                    <p>{{ list_answers }}</p>
+                    {% if answer[numb] != right_answer %}
+                        <input type="text" name="answer{{ question }}" placeholder="Enter new answer">
+                    {% else %}
+                        <input type="text" name="right_answer" placeholder="Enter new right answer">
+                    {% endif %}
+                {% endfor %}
+                
+            {% endfor %}
 
-        <button>Submit</button>
+        
+        <button type="submit">Confirm changes</button>
     </form>
 {% endblock %}

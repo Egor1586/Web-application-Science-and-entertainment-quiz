@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block links %}
-    <link rel="stylesheet" href="{{ url_for('test_app.static', filename= 'css/test.css') }}">
+    <link rel="stylesheet" href="{{ url_for('test_app.static', filename= 'css/edit_test.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -17,7 +17,7 @@
                 <div class="meta-info">Number of answers per question: {{ test.question_count }} </div>
             </div>
             <button class="edit-btn">
-                <a href="/edit_header_test">Edit</a>
+                <a href="/edit_header_test{{ test.id }}">Edit</a>
             </button>
         </div>
 
@@ -27,7 +27,7 @@
                 <div class="question-header">
                 <div>{{ question.question }}</div>
                 <button class="edit-btn">
-                    <a href="/edit_question">Edit</a>
+                    <a href="/edit_question{{ question.id }}">Edit</a>
                 </button>
                 </div>
                 <div class="question-text">
