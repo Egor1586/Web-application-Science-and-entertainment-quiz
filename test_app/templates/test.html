@@ -9,44 +9,40 @@
 {% endblock %}
 
 {% block content %}
-    <body>
-
-        <div class="container">
-            <div class="test-header">
-                <div class="test-details">
-                    <div class="test-title">Test Topic: {{ test.topic }}</div>
-                    <div class="test-description">Description: {{ test.description }}</div>
-                    <div class="meta-info">Number of answers per question: {{ test.question_count }} </div>
-                </div>
-                <button class="edit-btn">
-                    <a href="/edit_header_test">Edit</a>
-                </button>
+    <div class="container">
+        <div class="test-header">
+            <div class="test-details">
+                <div class="test-title">Test Topic: {{ test.topic }}</div>
+                <div class="test-description">Description: {{ test.description }}</div>
+                <div class="meta-info">Number of answers per question: {{ test.question_count }} </div>
             </div>
-
-            {% for question in list_quiz %}
-                {% set answers = list_answers[loop.index0] %}
-                <div class="question-block">
-                    <div class="question-header">
-                    <div>{{ question.question }}</div>
-                    <button class="edit-btn">
-                        <a href="/edit_question">Edit</a>
-                    </button>
-                    </div>
-                    <div class="question-text">
-                        Choose the correct option from the ones below.
-                    </div>
-                    {% for answer in answers %}
-                        {% if answer != question.right_answer %}
-                            <div class="answer incorrect">✗ {{answer}}</div>                 
-                            
-                        {% else %}
-                            <div class="answer correct">✓ {{ answer }}</div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            {% endfor %}
-
+            <button class="edit-btn">
+                <a href="/edit_header_test">Edit</a>
+            </button>
         </div>
 
-    </body>
+        {% for question in list_quiz %}
+            {% set answers = list_answers[loop.index0] %}
+            <div class="question-block">
+                <div class="question-header">
+                <div>{{ question.question }}</div>
+                <button class="edit-btn">
+                    <a href="/edit_question">Edit</a>
+                </button>
+                </div>
+                <div class="question-text">
+                    Choose the correct option from the ones below.
+                </div>
+                {% for answer in answers %}
+                    {% if answer != question.right_answer %}
+                        <div class="answer incorrect">✗ {{answer}}</div>                 
+                        
+                    {% else %}
+                        <div class="answer correct">✓ {{ answer }}</div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+    </div>
 {% endblock %}

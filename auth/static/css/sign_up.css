@@ -12,6 +12,10 @@ body{
     flex-direction: column;
 }
 
+main {
+    align-items: center;
+}
+
 
 .wrapper{
     position: relative;

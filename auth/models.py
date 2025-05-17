@@ -13,4 +13,4 @@ class User(db.Model, UserMixin):
     is_admin= db.Column(db.Boolean, default= 0)
 
     def __repr__(self):
-        return f'User: {self.name}'
+        return f'User: {self.username}'

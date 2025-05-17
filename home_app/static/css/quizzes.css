@@ -21,7 +21,7 @@ main {
     display: flex;
     gap: 20px;
 
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     /* padding: 20px; */
     /* margin-top: 60px;  */
@@ -35,7 +35,7 @@ main {
 }
 
 aside {
-    width: 290px;
+    width: 18vw;
     height: 100vh;
     background-color: var(--bg-aside);
     padding: 15px 30px 30px 30px;

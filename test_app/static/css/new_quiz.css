@@ -5,6 +5,11 @@
     --border-color: #ccc;
     --font-family: 'Roboto', sans-serif;
 }
+
+main {
+    flex-direction: column;
+    align-items: center;
+}
   
 h1, h3{
     color: var(--primary-color1);

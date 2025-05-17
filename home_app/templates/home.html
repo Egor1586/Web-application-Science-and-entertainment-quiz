@@ -33,12 +33,11 @@
     </div>
 
     <hr>
-    
-    <div class="aval-t">
-        <h1 class="av-t">Avaliable Tests</h1>
-    </div>
 
         {% if username %}
+            <div class="aval-t">
+                <h1 class="av-t">Avaliable Tests</h1>
+            </div>
         
             <div class="tests">
             {% for test in list_tests %}
@@ -57,10 +56,9 @@
                     
             {% endfor %}
             </div>
+            
+            <hr>
         {% endif %}
-
-    <hr>
-
       
     <footer style="position: relative; bottom: 0">
         <div class="footer-content">
@@ -73,7 +71,7 @@
         </div>
     </footer>
 
-    <!-- <script>
+    <script>
 
         const socket = io();
 
@@ -101,6 +99,6 @@
             msgInput.value = "";
         }
 
-    </script> -->
+    </script>
     
 {% endblock %}
