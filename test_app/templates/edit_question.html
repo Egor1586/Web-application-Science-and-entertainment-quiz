@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    New quiz
+{% endblock %}
+
+{% block links %}
+    <link rel = "stylesheet" href = "{{ url_for('test_app.static', filename='css/edit_question.css') }}">
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+        <div>
+            <input type="text" name="question1">
+            <input type="text" name="question2">
+            <input type="text" name="question3">
+            <input type="text" name="question4">
+            <input type="text" name="answer">
+
+            <button type="submit"></button>
+        </div>
+    </form>
+{% endblock %}

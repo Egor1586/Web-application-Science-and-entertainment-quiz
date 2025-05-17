@@ -18,7 +18,9 @@
                     <div class="test-description">Description: {{ test.description }}</div>
                     <div class="meta-info">Number of answers per question: {{ test.question_count }} </div>
                 </div>
-                <button class="edit-btn">Edit</button>
+                <button class="edit-btn">
+                    <a href="/edit_header_test">Edit</a>
+                </button>
             </div>
 
             {% for question in list_quiz %}
@@ -26,7 +28,9 @@
                 <div class="question-block">
                     <div class="question-header">
                     <div>{{ question.question }}</div>
-                    <button class="edit-btn">Edit</button>
+                    <button class="edit-btn">
+                        <a href="/edit_question">Edit</a>
+                    </button>
                     </div>
                     <div class="question-text">
                         Choose the correct option from the ones below.

@@ -33,5 +33,5 @@ project.config.update(
 project.secret_key = secrets.token_bytes()
 
 mail = Mail(project)
-socketio = SocketIO(project)
+socketio = SocketIO(project, cors_allowed_origins="*")
 

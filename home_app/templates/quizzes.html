@@ -43,12 +43,17 @@
                         <div class="info-code">
                             
                             <div class="actions">
-                                <button class="edit">
+                                
+                                <form action="" method="post">
+                                    <button class="edit">
                                     <a href="/test_app{{ test.code }}?test_id={{ test.id }}">Edit</a>                    
                                 </button>
+                                </form>
+                                
+
                                 <!-- <button class="start">Start</button> -->
-                                <button onclick="joinRoom()" class="start">
-                                    <a href="/room" class="btn">
+                                <button class="start">
+                                    <a href="/room{{test.code}} " class="btn">
                                         Start
                                     </a>
                                 </button>
