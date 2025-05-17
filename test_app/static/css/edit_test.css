@@ -14,6 +14,10 @@ body {
     color: var(--text-dark);
 }
 
+main {
+    height: inherit;
+}
+
 .container {
     max-width: 800px;
     margin: auto;
@@ -56,6 +60,11 @@ body {
     cursor: pointer;
     height: fit-content;
 }
+
+.edit-btn a{
+     all: unset;
+}
+
 .edit-btn:hover {
     background-color: var(--green-light);
 }

@@ -11,20 +11,18 @@ def handle_join(username):
     users[flask.request.sid] = username
     join_room(username)
     emit('user_joined', {'msg': f'{username} присоединился к комнате {username}'}, room= username)
-    print(f'{username} присоединился к комнате {username}')
 
 @Project.settings.socketio.on('message')
 def handle_message(data):
-    username = users.get(flask.request.sid, "Anonymous")  # Get the user's name
-    emit("message", f"{username}: {data}", broadcast=True)  # Send to everyone
-    print(f"{username}: {data}")
+    username = users.get(flask.request.sid, "Anonymous") 
+    emit("message", f"{username}: {data}", broadcast=True)
 
-def render_room(code):
-    
+def render_room(test_code):
+
     return flask.render_template(
     template_name_or_list= 'room.html', 
     is_authorization = current_user.is_authenticated,
     username = current_user.username if current_user.is_authenticated else "", 
     is_teacher= current_user.is_teacher if current_user.is_authenticated else "",
-    CODE = code
+    CODE = test_code
     )

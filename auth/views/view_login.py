@@ -9,12 +9,10 @@ def render_login_app():
         password = flask.request.form["password"]
         email = flask.request.form["email"]
         
-        list_users = User.query.all()
+        user = User.query.filter_by(email=email).first()
 
-        for user in list_users:
-            if user.email == email and user.password == password: 
-                print("login")
-                login_user(user)
+        if user.email == email and user.password == password: 
+            login_user(user)
                 
     if not current_user.is_authenticated:
         return flask.render_template(template_name_or_list="login.html")

@@ -12,18 +12,18 @@
     <div class="container">
         <div class="test-header">
             <div class="test-details">
-                <div class="test-title">Test Topic: {{ test.topic }}</div>
+                <div class="test-title">Test Title: {{ test.title }}</div>
                 <div class="test-description">Description: {{ test.description }}</div>
-                <div class="meta-info">Number of answers per question: {{ test.question_count }} </div>
+                <div class="meta-info">Number of total questions: {{ test.total_questions }} </div>
+                <div class="meta-info">Number of answers per question: {{ test.answers_per_question }} </div>
             </div>
-
         </div>
         <form action="" method="POST">
-            {% for question in quizzes_list %}
+            {% for question in list_quiz %}
                 {% set answers = list_answers[loop.index0] %}
                 <div class="question-block">
                     <div class="question-header">
-                    <div>{{ question.question }}</div>
+                    <div>{{ question.question_text }}</div>
                     </div>
                     <div class="question-text">
                         Choose the correct option from the ones below.
@@ -36,7 +36,7 @@
                     {% endfor %}
                 </div>
             {% endfor %}
-            <button>Submit</button>
+            <button class="send-test">Send test</button>
         </form>
     </div>
 {% endblock %}

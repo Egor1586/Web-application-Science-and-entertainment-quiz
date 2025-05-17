@@ -3,6 +3,7 @@ import flask
 from flask_login import current_user
 
 def render_score():
+    
     return flask.render_template(
         template_name_or_list= 'score.html', 
         is_authorization = current_user.is_authenticated, 

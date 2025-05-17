@@ -9,8 +9,9 @@ def render_quizzes():
     list_tests = Test.query.all()
     
     count_of_tests = 0
+
     for test in list_tests:
-        if test.author == current_user.username:
+        if test.author_name == current_user.username:
             list_your_test.append(test)
 
     count_of_tests = int(len(list_tests))

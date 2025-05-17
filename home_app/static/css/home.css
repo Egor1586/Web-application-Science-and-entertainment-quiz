@@ -1,11 +1,8 @@
-body{
-    scrollbar-width:  none;
-}
-
 main {
     flex-direction: column;
     align-items: center;
-    height: inherit;
+    width: 100vw;
+    height: 84vh;
 }
 
 .about-questy{
@@ -88,7 +85,6 @@ main {
     pointer-events: none;
     z-index: 2;
     box-sizing: border-box;
-  
     
     clip-path: polygon(0 0, 0 0, 0 0, 0 0);
     transition: clip-path 0s;
@@ -97,7 +93,6 @@ main {
 .search-input input:focus + .fake-input-border {
     animation: border-reveal 0.6s ease forwards;
 }
-  
 
 .search-input .fake-input-border {
     content: "";
@@ -185,7 +180,8 @@ hr {
     gap: 30px;
 
     width: 100vw;
-    height: 37vh;
+    height: auto;
+    /* height: 37vh; */
     border-radius: 5px; 
     padding: 25px 40px;
 
@@ -193,6 +189,7 @@ hr {
     
     overflow-x: scroll;
     scroll-behavior: smooth;
+    overflow: hidden;
     scrollbar-color: black;
     scrollbar-width: thin;
     
@@ -275,31 +272,5 @@ hr {
   margin-top: 12px;
   font-size: 14px;
 }
-  
 
-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    background-color: #414D42;
-    width: 100vw;
-    height: 10vh;
-
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 30px;
-
-    color: white;
-    text-align: center;
-}
-
-footer a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    margin: 0 10px;
-}
 

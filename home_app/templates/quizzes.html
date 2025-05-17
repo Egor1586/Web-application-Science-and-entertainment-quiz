@@ -14,51 +14,49 @@
         <section class="library">
             <h2>My library</h2>
             <div class="quiz-card">Test&nbsp;&nbsp; {{ count_of_tests }}/20</div>
-            <!-- <div class="quiz-card">Test&nbsp;&nbsp; 5/20</div> -->
-            <!-- <div class="quiz-card">Test&nbsp;&nbsp; 8/20</div> -->
-
         </section>
     </aside>
     
 
-    
     <div class="quiz-list">
-        <h2>List of quizzes</h2>
-        {% for test in list_tests %} 
-            {% if test.author == username %}
-                <div class="quiz-item">
-                    <div class="info">
-                        <strong>{{ test.topic }}</strong>
-                        <p>{{ test.description }}</p>
-                        <p class="date"><strong>Date:</strong> {{ test.date }}</p>
-                    </div>
-
-                    <div class="info">
-                        <strong>{{ test.question_count }}</strong>
-                        
-                        <p class="date"><strong>Author:</strong> {{ test.author }}</p>
-                    </div>
-                    <!-- <p><strong>Topic description</strong> – 5 questions</p> -->
-                    <div class="info-code">
-                        
-                        <div class="actions">
-                            <button class="edit">
-                                <a href="/test_app{{ test.code }}?test_id={{ test.id }}">Edit</a>                    
-                            </button>
-                            <!-- <button class="start">Start</button> -->
-                            <button class="start">
-                                <a href="/room{{test.code}} " class="btn">
-                                    Start
-                                </a>
-                            </button>
+        {% if list_tests %}
+            <h2>List of quizzes</h2>
+            {% for test in list_tests %} 
+                {% if test.author_name == username %}
+                    <div class="quiz-item">
+                        <div class="info">
+                            <strong>{{ test.title }}</strong>
+                            <p>{{ test.description }}</p>
+                            <p class="date"><strong>Date:</strong> {{ test.created_date }}</p>
                         </div>
-                        <p class="code-p"><strong>Code: </strong>{{test.code}}</p>
+
+                        <div class="info">
+                            <strong>{{ test.total_questions }}</strong>
+                            
+                            <p class="date"><strong>Author:</strong> {{ test.author_name }}</p>
+                        </div>
+                        <!-- <p><strong>Topic description</strong> – 5 questions</p> -->
+                        <div class="info-code">
+                            
+                            <div class="actions">
+                                <button class="edit">
+                                    <a href="/test_app{{ test.test_code }}?test_id={{ test.id }}">Edit</a>                    
+                                </button>
+                                <!-- <button class="start">Start</button> -->
+                                <button class="start">
+                                    <a href="/room{{test.test_code}} " class="btn">
+                                        Start
+                                    </a>
+                                </button>
+                            </div>
+                            <p class="code-p"><strong>Code: </strong>{{test.test_code}}</p>
+                        </div>
+                        <!--  -->
+                    
                     </div>
-                    <!--  -->
-                
-                </div>
-            {% endif %}
-        {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
     </div>
 
 {% endblock %}

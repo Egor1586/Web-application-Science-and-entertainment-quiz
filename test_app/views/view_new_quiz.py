@@ -12,7 +12,7 @@ def render_new_quiz():
         "description": "Тест на базові знання Python для початківців.",
         "questions": [
             {
-            "question": "Яка правильна команда для виводу тексту на екран у Python?",
+            "question_text": "Яка правильна команда для виводу тексту на екран у Python?",
             "options": [
                 "echo('Hello World')",
                 "console.log('Hello World')",
@@ -22,7 +22,7 @@ def render_new_quiz():
             "correct_answer": "print('Hello World')"
             },
             {
-            "question": "Який тип даних використовується для зберігання цілих чисел у Python?",
+            "question_text": "Який тип даних використовується для зберігання цілих чисел у Python?",
             "options": [
                 "float",
                 "str",
@@ -32,7 +32,7 @@ def render_new_quiz():
             "correct_answer": "int"
             },
             {
-            "question": "Як позначається початок коментаря в Python?",
+            "question_text": "Як позначається початок коментаря в Python?",
             "options": [
                 "//",
                 "<!-- -->",
@@ -42,7 +42,7 @@ def render_new_quiz():
             "correct_answer": "#"
             },
             {
-            "question": "Який з наведених варіантів створює список у Python?",
+            "question_text": "Який з наведених варіантів створює список у Python?",
             "options": [
                 "(1, 2, 3)",
                 "{1, 2, 3}",
@@ -52,7 +52,7 @@ def render_new_quiz():
             "correct_answer": "[1, 2, 3]"
             },
             {
-            "question": "Як можна отримати довжину списку у Python?",
+            "question_text": "Як можна отримати довжину списку у Python?",
             "options": [
                 "length(list)",
                 "count(list)",
@@ -66,36 +66,33 @@ def render_new_quiz():
     
     if flask.request.method == "POST":
         try:
-            topic = flask.request.form['topic']
+            title = flask.request.form['title']
             description = flask.request.form['description']
-            count_question = flask.request.form['count_question']
-            answer_on_question= flask.request.form["answer_on_question"]
+            total_questions = flask.request.form['total_questions']
+            answers_per_question= flask.request.form["answers_per_question"]
             
-            if not count_question:
-                count_question = 10
-            if not answer_on_question:
-                answer_on_question = 4
+            print("HE")
+            if not total_questions:
+                total_questions = 10
+            if not answers_per_question:
+                answers_per_question = 4
 
-            # data= generate_test(topic, description, count_question, answer_on_question)
-       
-            # 
-            print(topic, description, count_question, answer_on_question )
             
             while True: 
-                code= random.randint(1000, 9999)
-                db_code = Test.query.filter_by(code= code).first()
+                test_code= random.randint(1000, 9999)
+                db_test_code = Test.query.filter_by(test_code= test_code).first()
                 
-                if db_code is None:
+                if db_test_code is None:
                     break
 
             test = Test(
-                topic= topic,
-                description = description,
-                question_count = count_question,
-                answer_on_question = answer_on_question,
-                code= code,
-                author = current_user.username,
-                date= datetime.date.today()
+                title= title,
+                description= description,
+                total_questions = total_questions,
+                answers_per_question = answers_per_question,
+                test_code= test_code,
+                author_name = current_user.username,
+                created_date= datetime.date.today()
             )
 
             db.session.add(test)
@@ -103,19 +100,19 @@ def render_new_quiz():
             
             for quizzes in data["questions"]:
                 quiz = Quiz(
-                    question = quizzes["question"],
-                    answers = "%$№".join(quizzes["options"]),
-                    right_answer = quizzes["correct_answer"],
-                    quiz_id = test.id             
+                    question_text = quizzes["question_text"],
+                    answer_options = "%$№".join(quizzes["options"]),
+                    correct_answer = quizzes["correct_answer"],
+                    test_id = test.id             
                 )
                 db.session.add(quiz)
                         
             db.session.commit()
                 
-            return flask.redirect(location = '/../quizzes')
+            return flask.redirect(location = '/quizzes')
 
-        except:
-            pass
+        except Exception as error:
+            print(error)
 
     return flask.render_template(template_name_or_list = 'new_quiz.html',
         is_authorization = current_user.is_authenticated,

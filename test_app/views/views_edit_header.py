@@ -1,5 +1,5 @@
 import flask
-from ..models import Test, Quiz
+from ..models import Test
 
 from Project.database import db
 
@@ -11,13 +11,19 @@ def render_edit_header(id):
 
     if flask.request.method == "POST":
 
-        topic = flask.request.form["topic"]
-        description = flask.request.form["description"]
+        if flask.request.form["title"]:
+            title = flask.request.form["title"]
+            test.title= title
+            print(title)
 
-        test.topic = topic
-        test.description = description
+        if flask.request.form["description"]:
+            description = flask.request.form["description"]
+            test.description= description
+            print(description)
 
         db.session.commit()
+
+        return flask.redirect(f"/test_app{test.test_code}?test_id= {test.id}")
 
     return flask.render_template(
         template_name_or_list = 'edit_head_test.html',

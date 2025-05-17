@@ -5,7 +5,6 @@ from Project.settings import socketio
 from flask_socketio import emit, join_room
 from test_app.models import Test
 
-
 users = {}
 
 @Project.settings.socketio.on('join')
@@ -18,8 +17,8 @@ def handle_join(username):
 
 @Project.settings.socketio.on('message')
 def handle_message(data):
-    username = users.get(flask.request.sid, "Anonymous")  # Get the user's name
-    emit("message", f"{username}: {data}", broadcast=True)  # Send to everyone
+    username = users.get(flask.request.sid, "Anonymous")  
+    emit("message", f"{username}: {data}", broadcast=True) 
     print(f"{username}: {data}")
 
 def loguot():
@@ -28,6 +27,7 @@ def loguot():
 
 def render_home():
     list_test = []
+    
     if current_user.is_authenticated:
         list_test = Test.query.all()
 

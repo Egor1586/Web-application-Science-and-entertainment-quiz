@@ -3,6 +3,7 @@ import flask
 from flask_login import current_user
 
 def render_profile():
+    
     return flask.render_template(
     template_name_or_list= 'profile.html', 
     is_authorization = current_user.is_authenticated,

@@ -14,7 +14,6 @@ main {
 h1, h3{
     color: var(--primary-color1);
 }
-
   
 .create-test-page {
     max-width: 600px;

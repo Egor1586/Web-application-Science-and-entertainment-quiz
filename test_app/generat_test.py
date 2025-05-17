@@ -9,6 +9,7 @@ async def generate_test(topic: str, description:str, count_question: int, aswer_
     функція яка отримує відповідь від штучного інтелекту за допомогою моделі gpt-4o-mini
     """
     promt = "Привіт, створи мені тест простий на тему Python, який включає в себе 5 питань. На кожне питання у чата є відповіді, три які з них - не правильні, а лише одна правильна"
+    
     response = await client_openai.chat.completions.create(
         model = "gpt-4o-mini",
         messages = [{

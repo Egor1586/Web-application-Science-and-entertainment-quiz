@@ -11,7 +11,6 @@ def render_send_email():
     if flask.request.method == 'POST':
 
         email = flask.request.form['email'] 
-        print(f'Это email который мы получаем: {email}')
         code = random.randint(100000, 999999)
         list_code.append(code)
         list_email.append(email)
